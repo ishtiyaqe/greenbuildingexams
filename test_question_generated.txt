@@ -1,0 +1,411 @@
+What is the purpose of the materials published by the Green Building Academy?
+A. To guarantee passing the LEED Exam
+B. To be used as a study tool for the LEED exam
+C. To endorse the USGBC or the GBCI
+D. To take responsibility for any Third Party Material or opinions
+What is the main criticism of other popular study guides according to the author of "LEED Green Associate Made Easy"?
+A) They are too expensive
+B) They are not reader friendly and too lengthy for a busy professional
+C) They lack quality content
+D) They are outdated
+What are some of the special features of the LEED Green Associate Made Easy book?
+
+A) It is available only in hard copy.
+B) It lacks graphics content.
+C) It has an online discussion forum at the end of each chapter for clarifications.
+D) It does not contain practice questions for exam preparation.
+Question: What are some of the characteristics of Green Buildings according to Green Building Academy?
+
+A. Energy Inefficient
+B. Water Inefficient
+C. Provide worse Indoor Environment
+D. Energy Efficient, Water Efficient, Provide better Indoor Environment, Use environmental friendly or sustainable materials, Produce Less waste, Have lesser transportation requirement, Protect/restore habitat
+Based on the document, which of the following statements is true?
+a) Industries are the major contributors to greenhouse gas emissions
+b) Buildings do not contribute to environmental pollution
+c) Green buildings can significantly reduce the resources used in buildings
+d) Green buildings increase environmental impact
+
+Answer: c) Green buildings can significantly reduce the resources used in buildings
+What is the Green Building rating system used in the United States?
+A) GRIHA
+B) LEED
+C) PromisE
+D) BREEAM
+What are the three levels of LEED credentials that professionals can earn?
+a) LEED Green Associate, LEED AP, and LEED Fellow
+b) LEED Green Associate, LEED AP, and LEED BD+C
+c) LEED Green Associate, LEED Fellow, and LEED O+M
+d) LEED AP, LEED Fellow, and LEED BD+C
+What is the structure of the LEED Green Associate + LEED AP combined examination?
+A) The combined exam consists of two parts, each containing 100 multiple choice questions to be completed in 2 hours
+B) The combined exam consists of three parts, each containing 75 multiple choice questions to be completed in 1.5 hours
+C) The combined exam consists of two parts, each containing 75 multiple choice questions to be completed in 1.5 hours
+D) The combined exam consists of three parts, each containing 100 multiple choice questions to be completed in 2 hours
+Question: What is the acronym LEED stand for?
+Answer: Leadership in Energy and Environmental Design.
+Which LEED Rating System is applicable for new construction and major renovation of buildings?
+a) LEED for O+M
+b) LEED for ND
+c) LEED for BD+C
+d) LEED for Homes
+What kind of projects qualify for the LEED BD+C: Core & Shell rating system? 
+a) Single family housing
+b) Inpatient and outpatient health care facilities
+c) Projects where the developer has no control over the tenant fit out such as shopping malls and commercial buildings
+d) Multi-family residential buildings of 4 to 8 habitable stories above grade. 
+Answer: c) Projects where the developer has no control over the tenant fit out such as shopping malls and commercial buildings
+What does the LEED O+M: Data Centers category apply to?
+A. Existing buildings used to store goods, manufactured products, merchandise, raw materials, or personal belongings.
+B. Existing buildings specifically designed and equipped to meet the needs of high density computing equipment such as server racks, used for data storage and processing.
+C. Existing hotels, motels, inns, or other businesses within the service industry that provide transitional or short-term lodging with or without food.
+D. Academic buildings of K-12 schools. Can also be used for higher education and non-academic buildings on school campuses.
+What are the levels of LEED Certifications based on the number of points scored?
+A. LEED Registered, LEED Bronze, LEED Silver, LEED Gold
+B. LEED Certified, LEED Silver Certified, LEED Gold Certified, LEED Platinum Certified
+C. LEED Approved, LEED Recognized, LEED Acclaimed, LEED Honored
+D. LEED Licensed, LEED Endorsed, LEED Authorized, LEED Certified
+What is an example of what LEED Certified buildings are expected to achieve?
+A. Increase contribution to global climate change
+B. Enhance individual human health
+C. Deplete water resources
+D. Promote unsustainable material cycles
+What is the purpose of GBCI as established in 2008?
+A) To oversee the construction of green buildings
+B) To administer project certifications and professional credentials within the framework of the U.S. Green Building Council’s Leadership in Energy and Environmental Design (LEED®) Green Building Rating Systems™
+C) To provide support for LEED documentation
+D) To provide membership benefits for USGBC member companies
+Question: What are some of the basic requirements a project must fulfill to be eligible for LEED Certification?
+
+A) Must be in a temporary location on existing land.
+B) Must use unreasonable & inconsistent site/LEED boundaries.
+C) Must comply with minimum project size requirements of 1000 sq.ft for LEED BD+C and LEED O+M and 250 sq.ft for LEED ID+C.
+D) The project should not comply with Minimum Program Requirements of the rating system.
+
+Answer: C) Must comply with minimum project size requirements of 1000 sq.ft for LEED BD+C and LEED O+M and 250 sq.ft for LEED ID+C.
+What is the overall objective of the Location and Transportation credit category in LEED Rating Systems?
+A. To increase the environmental impact by improper site selection.
+B. To increase the environmental impact associated with transportation.
+C. To reduce the environmental impact by proper site selection and associated with transportation, and improve public health by increased physical activity.
+D. To encourage the development of environmentally sensitive sites.
+Question: What is the significance of a High Priority Site as per the document?
+Options:
+a) To encourage project location in areas with development constraints and reduce the load on Greenfield sites and farm lands
+b) To encourage development in environmentally sensitive sites
+c) To encourage development in flood prone areas
+d) To increase the load on infrastructure requirement
+
+Answer: a) To encourage project location in areas with development constraints and reduce the load on Greenfield sites and farm lands
+What is the significance of LEED's "Surrounding Density & Diverse use" credit?
+a) To promote development in areas with existing infrastructure and reduce vehicle distance traveled.
+b) To encourage the construction of large, sprawling developments.
+c) To encourage the use of cars and discourage walking.
+d) To promote the construction of buildings without diverse use spaces.
+What is the purpose of having access to quality transit as mentioned in the document?
+A) To increase automobile use
+B) To encourage development with transportation facilities and reduce environmental and public health harms
+C) To discourage development with transportation facilities
+D) To increase greenhouse gas emissions and air pollution
+Question: What strategies are suggested to promote alternatives to conventionally fueled automobiles?
+
+A) Provide shopping discounts for LE/FE vehicle owners
+B) Provide preferred or discounted parking for carpool/low emitting and fuel efficient vehicles 
+C) Provide free car wash for LE/FE vehicles
+D) Provide free maintenance services for LE/FE vehicles
+What is the intent of construction activity pollution prevention?
+A. To increase air pollution
+B. To increase water pollution
+C. To reduce pollution from construction activities
+D. To increase soil erosion
+What are the two main types of Sedimentation Control (ESC) strategies?
+A) Erosion and Storm water run-off
+B) Stabilization and Structural
+C) Temporary Seeding and Permanent Seeding
+D) Silt fencing and Sediment Basins
+Question: What are the two categories of conditions identified during a Site Assessment?
+
+A. Site Assessment identifies both favorable conditions and the site's unique characteristics.
+B. Site Assessment identifies both favorable conditions and liabilities.
+C. Site Assessment identifies both the site's unique characteristics and strategies.
+D. Site Assessment identifies both strategies and liabilities. 
+
+Answer: B. Site Assessment identifies both favorable conditions and liabilities.
+What strategies are suggested for restoring habitat and promoting biodiversity in site development?
+A. Increase the building footprint and decrease the number of floors
+B. Increase the hardscape area and reduce the open space
+C. Preserve the undisturbed greenfield area and use native or adaptive vegetation
+D. Use invasive plants and increase the area of the project site used by the building footprint
+Question: What is the Heat Island Effect as discussed in the document?
+
+Answer: Heat island effect is the thermal gradient between urban and nearby rural areas.
+What are bioswales?
+A) They are underground water bearing permeable rock from where underground water can be extracted.
+B) They are vegetated surfaces that are designed to treat flow from adjacent surfaces by slowing runoff velocities and filtering out sediment and pollutants.
+C) They are a planted depression that allows rainwater runoff from impervious urban areas like roofs, driveways, walkways, parking lots, to be absorbed.
+D) They are landscape elements designed to remove silt and pollution from surface runoff water.
+Question: What strategies are suggested to reduce the effects of the urban heat island effect?
+
+A. Increase impervious surface area
+B. Remove all vegetation from roofs
+C. Use low SRI coating materials in impervious surfaces
+D. Use vegetated roof and high SRI coating materials in impervious surfaces
+
+Answer: D. Use vegetated roof and high SRI coating materials in impervious surfaces
+Question: What is the significance of Solar Reflective Index (SRI) in the context of construction materials?
+
+Choices: 
+
+A. It measures the cost of energy consumption 
+B. It determines the ability of a material to reflect solar radiation
+C. It influences the light pollution created by a material
+D. It measures a material's ability to reject solar heat, thus affecting the heat island effect. 
+
+Correct Answer: D. It measures a material's ability to reject solar heat, thus affecting the heat island effect.
+What is the definition of Light Pollution?
+a) Light pollution is the alteration of light levels in the outdoor environment due to man-made sources of light.
+b) Light pollution is the alteration of light levels in the outdoor environment due to natural sources of light.
+c) Light pollution is the alteration of light levels in the indoor environment due to man-made sources of light.
+d) Light pollution is the alteration of light levels in the indoor environment due to natural sources of light. 
+Answer: a) Light pollution is the alteration of light levels in the outdoor environment due to man-made sources of light.
+What is one strategy for reducing water consumption in landscaping?
+A. Increasing the use of invasive plants
+B. Maximizing the turf/grass area
+C. Using a permanent irrigation system
+D. Utilizing native and adaptive plants
+What is the definition of Grey Water according to the Uniform Plumbing Code (UPC)?
+A) Water that has come in contact with toilet waste
+B) Wastewater from kitchen sinks
+C) Untreated wastewater that has not come in contact with toilet waste
+D) Water with acceptable quality to drink
+Question: What is one strategy suggested to increase energy efficiency within a building, according to the document?
+
+A. Increase the load on municipal water supply
+B. Use Energy Star or Water Sense certified appliances and plumbing fixtures
+C. Increase the load on sewage treatment plants
+D. Use fixtures less efficient than EP Act requirements
+
+Answer: B. Use Energy Star or Water Sense certified appliances and plumbing fixtures
+What is the function of a Dual flush Toilet?
+A. To dispense a pre-determined amount of water
+B. To contain and treat human waste via microbiological processes
+C. To replace water flush with a trap containing a layer of buoyant liquid
+D. To provide options for half flush and full flush depending on the requirement
+Question: What does the International Plumbing Code (IPC) developed by the International Code Council define?
+
+Answer: The IPC defines maximum flow rates and consumption for plumbing fixtures and fittings, including public and private lavatories, showerheads, sink faucets, urinals, and water closets.
+What is one of the strategies for optimizing energy performance in a building according to the Green Building Academy?
+A) Increasing the number of windows
+B) Proper orientation of the building
+C) Using more energy-consuming appliances
+D) Decreasing the window the wall ratio
+Question: What is the purpose of the EPA Energy star target finder tool?
+
+Answer: The EPA Energy star target finder is a no-cost online tool that enables architects and building owners to set energy targets during the design stage.
+What does a HERS Index of 65 indicate about a home's energy efficiency?
+A) The home is 65% less efficient compared to a new standard home.
+B) The home is 35% less efficient compared to a new standard home.
+C) The home is 65% more efficient compared to a new standard home.
+D) The home is 35% more efficient compared to a new standard home.
+3: Purchase Renewable Energy Certificates (RECs) equivalent to 50% of the project's total energy use for two years.
+
+Question: Which of the following is NOT considered as a renewable energy source according to LEED?
+A) Geothermal Power
+B) Wind Energy
+C) Fossil Fuel
+D) Tidal Energy
+
+Correct Answer: C) Fossil Fuel
+What can a consumer do if their utility provider doesn't offer Green E certified Power in a closed electricity market?
+A) They can't do anything
+B) They can switch utility providers
+C) They can purchase Green E accredited Renewable Energy Certificates to offset their power consumption from conventional sources 
+D) They can lodge a complaint to the Green Building Academy
+Question: What does the acronym HFC stand for in the context of refrigerants?
+
+A) Hydro Chloroflouro carbons
+B) Hydro Flouro Carbons
+C) High Frequency Carbon
+D) Heavy Fluoro Chemicals
+
+Answer: B) Hydro Flouro Carbons
+What is the purpose of commissioning in the design and construction of a project?
+A) To ensure that the project meets the owner's requirements for energy, water, indoor environmental quality, and durability
+B) To make sure that the project is completed on time
+C) To ensure that the project is within budget
+D) To make sure that the project meets the local building codes
+Question: What is the main difference between Fundamental and Enhanced Commissioning in a project?
+
+A. Fundamental Commissioning starts after the design phase and ends at occupancy, while Enhanced Commissioning starts early in the design process and ends after occupancy.
+B. Fundamental Commissioning only occurs during the design phase, while Enhanced Commissioning only occurs after occupancy.
+C. Fundamental Commissioning happens before the project starts, while Enhanced Commissioning happens after the project ends.
+D. There is no difference between Fundamental and Enhanced Commissioning. 
+
+Correct Answer: A. Fundamental Commissioning starts after the design phase and ends at occupancy, while Enhanced Commissioning starts early in the design process and ends after occupancy.
+What are the three 'R's that LEED encourages buildings to adopt in their Waste Reduction policy?
+A) Reuse, Reduce, and Recycle
+B) Reuse, Reduce, and Refurbish
+C) Recycle, Restore, and Repurpose
+D) Reduce, Replenish, and Reallocate
+What is the purpose of a construction and demolition waste management plan according to the text?
+A. To increase the amount of waste disposed of in landfills and incineration facilities
+B. To reduce construction and demolition waste disposed of in landfills and incineration facilities by recovering, reusing, and recycling materials
+C. To increase the demand for virgin resources 
+D. To increase the environmental impacts associated with resource extraction, processing and transportation
+What are some strategies to extend the lifetime of existing landfills according to the given text?
+
+A) Ignoring the issue
+B) Increasing the amount of waste
+C) Building more landfills
+D) Preparing a construction waste management plan, recycling, reusing, donating, considering waste-to-energy conversion, and handling hazardous materials properly.
+What is the significance of using salvaged materials in construction according to the text? 
+
+a) It increases the need for landfill space 
+b) It increases environmental impacts of producing new construction products and materials 
+c) It diverts material from the construction waste stream, reducing the need for landfill space and environmental impacts from associated water and air contamination
+d) It does not have any significant impact on the environment
+What does the term "Recycled Content" refer to in the context of building materials?
+A) The proportion of natural materials used in a product
+B) The proportion, by mass, of pre-consumer or post-consumer recycled material
+C) The percentage of a product that can be recycled after use
+D) The percentage of material in a product that is new or unused
+Question: What are rapidly renewable materials?
+A. Materials that take more than 20 years to renew.
+B. Materials that are made from agricultural products and renew in 10 years or less.
+C. Materials that are extracted, manufactured and assembled within 100 miles of radius from the project location.
+D. Materials that are made from non-renewable resources. 
+
+Answer: B. Materials that are made from agricultural products and renew in 10 years or less.
+Question: What is the significance of using FSC Certified Wood in sustainable construction?
+
+A. It encourages unsustainable forestry
+B. It contributes to irresponsible forest practices
+C. It is a seal of approval for environmentally and socially responsible forest management practices
+D. It has no particular significance, it's just a type of wood. 
+
+Correct Answer: C. It is a seal of approval for environmentally and socially responsible forest management practices
+What is the intent of Health Product Declarations (HPDs) according to the document?
+
+A) To provide a list of harmful products
+B) To provide a full disclosure of the potential chemicals of concern in products
+C) To compare product ingredients to a list of safe chemicals
+D) To provide a list of chemicals used in manufacturing process
+Question: What does the term "Embodied Energy" in the context of materials and resources refer to?
+
+A. The energy produced by a material when it is used in construction.
+B. The total primary energy consumed in manufacturing and using a product.
+C. The energy required to transport a material to a construction site.
+D. The energy saved by using a material in a sustainable manner. 
+
+Correct Answer: B. The total primary energy consumed in manufacturing and using a product.
+What is the purpose of the Minimum indoor air quality performance standard according to the document?
+A) To ensure maximum energy efficiency
+B) To contribute to the comfort and well-being of building occupants by establishing minimum standards for indoor air quality
+C) To ensure all buildings use heat recovery systems
+D) To regulate the amount of fresh air introduced into a building
+Question: According to the CIBSE Application Manual, what strategies are recommended for controlling environmental tobacco smoke in non-residential projects?
+
+A. Encourage smoking in designated areas inside the building
+B. Prohibit smoking inside and outside the building except in designated smoking areas
+C. Allow smoking outside the building for business purposes
+D. No need for signage indicating no smoking policy within 10’ of all building entrances
+
+Answer: B. Prohibit smoking inside and outside the building except in designated smoking areas
+Question: What is the intent of managing indoor air quality during construction?
+Answer: To promote the well-being of construction workers and building occupants by minimizing indoor air quality problems associated with construction and renovation.
+What are the five areas addressed by SMACNA in IAQ Management?
+A) Source control, Scheduling, Housekeeping, Pathway interruption, Protection of HVAC equipment
+B) Source control, Housekeeping, Protection of HVAC equipment, Thermal comfort, Indoor Lighting
+C) Source control, Housekeeping, Pathway interruption, Protection of HVAC equipment, Energy efficiency
+D) Source control, Housekeeping, Pathway interruption, Protection of HVAC equipment, Occupant control
+Question: What is the intent of providing daylight and quality views in a building according to the document?
+
+Answer: To connect building occupants with the outdoors, reinforce circadian rhythms, reduce the use of electrical lighting by introducing daylight into the space, and to give building occupants a connection to the natural outdoor environment by providing quality views.
+What does the Integrative Process in project delivery involve?
+A. Different disciplines working isolated on their corresponding tasks
+B. The Architect playing an important role in schematic design
+C. The project team setting project goals and objectives first
+D. The Architect not considering the HVAC Engineers input on orientation, WWR, building envelope impact
+What is the purpose of the Discovery Phase in the integrative process of green building?
+A. To measure the performance of the project and set feedback mechanism
+B. To incorporate all of the collective understandings of system interactions
+C. To understand project requirements, explore synergies between various building components, address budget, and schedule
+D. To brainstorm, collaborate and set project goals
+Question: What are the three paths that a project team can follow to earn Innovation Credit according to the LEED Green Building Rating System?
+
+A. Exemplary performance, Pilot Credits, and Innovative Criteria
+B. Exemplary performance, Water Efficiency, and LEED AP
+C. Innovation, LEED AP, and Regional Priority
+D. Water Efficiency, Indoor Water use reduction, and Exemplary Performance
+
+Correct Answer: A. Exemplary performance, Pilot Credits, and Innovative Criteria
+What is the purpose of the LEED Pilot Credit Library?
+A. To test new and revised LEED credit language, alternative compliance paths, and new or innovative green building technologies and concepts.
+B. To keep a record of all the buildings that have received LEED certification.
+C. To provide a database of all the green building technologies currently in use.
+D. To store all the information about the LEED certification process.
+Question: What is the role of a LEED AP in a project according to the document?
+
+A) LEED AP is responsible for designing the project.
+B) LEED AP is responsible for funding the project.
+C) LEED AP helps streamline the application and certification process.
+D) LEED AP is responsible for the construction of the project. 
+
+Answer: C) LEED AP helps streamline the application and certification process.
+Question: What are the stages of the LEED certification process?
+
+A) Project Registration, Application, Preliminary review, Preliminary review response, Final review, Accept or appeal, Appeal review, Certification or denial.
+B) Application, Project Registration, Preliminary review, Final review, Accept or appeal, Appeal review, Certification or denial.
+C) Project Registration, Application, Preliminary review, Preliminary review response, Accept or appeal, Certification or denial.
+D) Project Registration, Application, Preliminary review, Preliminary review response, Final review, Appeal review, Certification or denial. 
+
+Answer: A) Project Registration, Application, Preliminary review, Preliminary review response, Final review, Accept or appeal, Appeal review, Certification or denial.
+What is the difference between a Design Credit and a Construction Credit in the context of LEED certification?
+a) Design Credit is awarded after the design phase while Construction Credit is awarded after the construction phase.
+b) Design Credit is awarded only for environmentally friendly designs while Construction Credit is awarded for the use of green materials in construction.
+c) Design Credit is for projects that have not yet started, while Construction Credit is for ongoing projects.
+d) Design Credit is awarded based on the creativity of the design, while Construction Credit is based on the speed of construction.
+Which of the following is true regarding the LEED BD+C: CS Pre-certification process?
+
+A) Pre-certification requires more documentation than final certification.
+B) Pre-certification guarantees that the project will be LEED Certified.
+C) Pre-certification is the formal recognition of GBCI that the owner or developer has established LEED BD+C: CS certification as a goal.
+D) Pre-certification is not offered by GBCI.
+
+Answer: C) Pre-certification is the formal recognition of GBCI that the owner or developer has established LEED BD+C: CS certification as a goal.
+Question: What is the role of a Green Rater in the LEED for Homes Certification Process?
+
+A. They provide administrative & Technical support to the project team.
+B. They perform inspections and required tests to ensure the required performance targets are met.
+C. They review the documentation and submit it to GBCI for Review.
+D. They register the project with GBCI. 
+
+Answer: B. They perform inspections and required tests to ensure the required performance targets are met.
+Question: What are the different credit categories in LEED for ND?
+
+A. Smart Location and Linkages, Neighborhood Pattern & Design, Green Infrastructure and Buildings, Innovation in Design Process, Regional Priority
+B. Smart Location and Communications, Neighborhood Pattern & Design, Green Infrastructure and Housing, Innovation in Research Process, Regional Priority
+C. Smart Location and Linkages, City Pattern & Design, Green Infrastructure and Buildings, Innovation in Design Process, Global Priority
+D. Smart Location and Linkages, Neighborhood Pattern & Design, Grey Infrastructure and Buildings, Innovation in Design Process, Regional Priority
+
+Answer: A. Smart Location and Linkages, Neighborhood Pattern & Design, Green Infrastructure and Buildings, Innovation in Design Process, Regional Priority
+Question: What is the purpose of the LEED Volume Program?
+A. To certify individual buildings.
+B. To manage construction projects.
+C. To certify a large number of design and construction projects or existing buildings.
+D. To launch new versions of the LEED system. 
+
+Answer: C. To certify a large number of design and construction projects or existing buildings.
+Question: According to the document, how is the Life-Cycle Cost of a project calculated?
+
+Answer: Life-Cycle Cost is calculated as the sum of Hard Cost, Soft Cost, Operation & Maintenance cost, and all other costs associated with ownership.
+Question: According to the text, what does a Life Cycle Cost Analysis (LCCA) take into account?
+
+A. Only the initial cost of acquiring a building
+B. The cost of owning and disposing of a building only
+C. The cost of acquiring, owning, and disposing of a building or building system
+D. The cost of disposing of a building only
+What topics were addressed in this chapter according to the summary?
+A) The history of Green Buildings
+B) The environmental impact of Green Buildings
+C) The construction process of Green Buildings
+D) The cost of Green Buildings and Life-Cycle Cost Analysis
