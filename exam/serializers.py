@@ -50,19 +50,47 @@ class AnswerSerializer(serializers.ModelSerializer):
         model = Answer
         fields = ['id', 'answer']
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['answer'] = representation['answer'].replace("Options: [", "").strip()
+        return representation
+
 class QestionSerializer(serializers.ModelSerializer):
     answers = AnswerSerializer(many=True, read_only=True, source='answer_set')
-    
+
     class Meta:
         model = Qestion
-        fields = ['id', 'question', 'correct_answer', 'answers']
+        fields = ['id', 'question', 'answers']
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['question'] = representation['question'].replace("Question: ", "").strip()
+        
+        # Include correct_answer if context flag is set
+        if self.context.get('include_correct_answer'):
+            representation['correct_answer'] = instance.correct_answer
+        
+        return representation
 
 class ExamSerializer(serializers.ModelSerializer):
     questions = QestionSerializer(many=True, read_only=True, source='qestion_set')
-    
+
     class Meta:
         model = Exam
-        fields = ['id', 'title', 'start_time', 'end_time', 'questions']
+        fields = ['id', 'title', 'result', 'start_time', 'end_time', 'questions']
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        
+        # Pass context to the nested QestionSerializer
+        context = self.context.copy()
+        context['include_correct_answer'] = bool(instance.result)
+        
+        # Re-serialize the questions with the updated context
+        questions = QestionSerializer(instance.qestion_set.all(), many=True, context=context).data
+        representation['questions'] = questions
+
+        return representation
 
 class ExamSerializerL(serializers.ModelSerializer):
     

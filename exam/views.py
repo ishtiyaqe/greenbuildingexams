@@ -97,10 +97,7 @@ def create_order(request):
                 )
                 affiliate_instance.total_order += 1
                 affiliate_instance.save()
-        print('generate exam 5 times')
-        print(package.id)
-        thread = threading.Thread(target=create_exam_logic, args=(package.id,))
-        thread.start()
+        
         # Serialize the order
         serializer = OrderSerializer(order)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -163,6 +160,7 @@ def order_package_detail(request, pk):
         order_serializer = OrderSerializer(order)
         serializer = OrderPakageSerializer(order_package)
         package_serializer = PakageSerializer(active_packages, many=True)
+
         return JsonResponse({
             'order_pakage':serializer.data,
             'packages':package_serializer.data,
@@ -171,177 +169,259 @@ def order_package_detail(request, pk):
         })
     except OrderPakage.DoesNotExist:
         return JsonResponse({'error': 'OrderPakage not found'}, status=404)
-    
-@csrf_exempt
-@csrf_exempt
-def create_exam(request):
-    if request.method == 'POST':
-        try:
-            # Parse JSON data from request body
-            data = json.loads(request.body)
-            print(data)
-            package_id = data.get('package_id')
-            print(package_id)
-            order_package = OrderPakage.objects.get(pakage=package_id)
+
+from at import *
+import random
+
+def create_exam_logic(request, package_id):
+    try:
+        print("start work")
+        order_package = OrderPakage.objects.get(order=package_id)
+        
+        # Check if the order package exists and has available exam count
+        if order_package.Exam_count <= 0:
+            return JsonResponse({'message': 'Maximum exam count reached for this package'}, status=400)
+        
+        questions = Package_Qestion.objects.filter(package=order_package.pakage)
+        
+        print(questions)
+        if not questions:
+            print("No questions available for the exam")
+            return JsonResponse({'message': 'No questions available for the exam'}, status=400)
+        
+        if len(questions) < 3:
+            print("Not enough questions available for the exam")
+            return JsonResponse({'message': 'Not enough questions available for the exam'}, status=400)
+        
+        # Randomly select 10 questions
+        selected_questions = random.sample(list(questions), 3)
+        print(selected_questions)
+        current_time = timezone.now()  # Current time
+        
+        # Create the exam
+        exam = Exam.objects.create(
+            title=f"{order_package.order.order_number} {current_time} Batch 1",
+            order=order_package.order,
+            pakage=order_package.pakage,
+        )
+        
+        order_package.Exam_count -= 1
+        order_package.save()
+
+        # Update OrderPakageUseCount model
+        OrderPakageUseCount.objects.create(
+            order=order_package,
+            total_exam_crated=1
+        )
+
+        # Create question and answer objects for the selected questions
+        for question in selected_questions:
+            question_obj = Qestion.objects.create(
+                exam=exam,
+                question=question.question,
+                correct_answer=question.correct_answer
+            )
             
-            # Check if the order package exists and has available exam count
-            if order_package.Exam_count <= 0:
-                return JsonResponse({'message': 'Maximum exam count reached for this package'}, status=400)
-            obj = order_package.pakage.pdf.path
-            # Construct the full path
-            # full_path = "media/" + obj
-            # Call the main function with the path
-           
+            # Get answers for the question
+            answers = Package_Answer.objects.filter(question=question)
             
+            # Create the answer objects
+            for answer in answers:
+                Answer.objects.create(
+                    question=question_obj,
+                    answer=answer.answer
+                )
+
+        return JsonResponse({'success': 'Exams created successfully'}, status=201)
+    except OrderPakage.DoesNotExist:
+        return JsonResponse({'message': 'Order package not found'}, status=404)
+    except Exception as e:
+        print(e)
+        return JsonResponse({'message': 'An error occurred while creating the exam'}, status=500)
+
+def parse_docx(file_path):
+    questions = []
+    current_question = {}
+
+    # Open the .docx file
+    doc = docx.Document(file_path)
+
+    for paragraph in doc.paragraphs:
+        line = paragraph.text.strip()
+
+        # Check if the line starts with "question:"
+        if line.startswith("question:"):
+            # If a question is already being processed, add it to the list
+            if current_question:
+                questions.append(current_question)
+                current_question = {}
+
+            # Extract the question text and remove the "question:" prefix
+            current_question["question"] = line.replace("question:", "").strip()
+        # Check if the line starts with "options:"
+        elif line.startswith("options:"):
+            # Extract the options list and remove the "options:" prefix
+            options = line.replace("options:", "").strip()
+            # Remove the leading and trailing brackets, and split the options into a list
+            current_question["options"] = [option.strip().strip("[]'") for option in options.split(",")]
+        # Check if the line starts with "answer:"
+        elif line.startswith("answer:"):
+            # Extract the answer and remove the "answer:" prefix
+            current_question["answer"] = line.replace("answer:", "").strip()
+
+    # Add the last question to the list
+    if current_question:
+        questions.append(current_question)
+
+    return questions
+
+
+def package_create_exam_logicss(package_id):
+    print("page all")
+    print("page all")
+    print("page all")
+    try:
+        order_package = Pakage.objects.get(id=package_id)
+        
+        obj = order_package.docx.path
+        question_chunks = parse_docx(obj)
+
+        # Group questions into chunks of 100 (not needed for this demonstration)
+        question_batches = [question_chunks[i:i + 100] for i in range(0, len(question_chunks), 100)]
+
+        for batch_index, question_batch in enumerate(question_batches):
             current_time = datetime.now().strftime('%H:%M:%S')  # Format: Hours:Minutes:Seconds
             # Create the exam
-            exam = Exam.objects.create(
-                title = f"{order_package.order.order_number} {current_time}",
-                order=order_package.order,
-                pakage=order_package.pakage,
-                start_time=order_package.order.created_at,  # Start time is the order creation time
-            )
+           
+
+            package_create_single_examsss(question_batch, order_package)
+        
+        return JsonResponse({'success': 'Exams created successfully'}, status=201)
+    
+    except OrderPakage.DoesNotExist:
+        return JsonResponse({'error': 'Order package not found'}, status=404)
+
+
+def package_create_exam_logic(package_id):
+    print("page all")
+    print("page all")
+    print("page all")
+    try:
+        order_package = Pakage.objects.get(id=package_id)
+        
+        obj = order_package.pdf.path
+
+ 
+        # Split the questions text into individual questions
+        # question_chunks = main(obj)
+        question_chunks = questions_texts
+
+        # Group questions into chunks of 100 (not needed for this demonstration)
+        question_batches = [question_chunks[i:i + 100] for i in range(0, len(question_chunks), 100)]
+
+        for batch_index, question_batch in enumerate(question_batches):
+            current_time = datetime.now().strftime('%H:%M:%S')  # Format: Hours:Minutes:Seconds
+            # Create the exam
+           
+
+            package_create_single_exam(question_batch, order_package)
+        
+        return JsonResponse({'success': 'Exams created successfully'}, status=201)
+    
+    except OrderPakage.DoesNotExist:
+        return JsonResponse({'error': 'Order package not found'}, status=404)
+    
+def package_create_single_examsss(question_list, order_package):
+    current_time = datetime.now().strftime('%H:%M:%S')  # Format: Hours:Minutes:Seconds
+    logging.info('Generating exam at %s', current_time)
+    logging.info('Questions list: %s', question_list)
+
+    for question_data in question_list:
+        try:
+            # Extract and clean the question text
+            question_text = question_data.get("question")
             
-            # Decrement the exam count for the order package
-            order_package.Exam_count -= 1
-            order_package.save()
+            # Extract the correct answer
+            correct_answer_text = question_data.get("answer")
             
-            # Update OrderPakageUseCount model
-            OrderPakageUseCount.objects.create(
-                order=order_package,
-                total_exam_crated=1
-            )
+            # Extract options
+            options = question_data.get("options", [])
             
-            # questions_text = main(obj)
-            questions_text = main('doc.docx')
-            print(questions_text)
-            # Parse the generated questions and answers
-            # Parse the generated questions and answers
-            for question_data in questions_text.split("\n\n"):
-                question_lines = question_data.split("\n")
-                
-                # Extract and clean the question text
-                question_text = question_lines[0].split("Question: ")[-1].strip()
-                
-                # Extract the correct answer
-                correct_answer_text = question_lines[1].split("Answer: ")[-1].strip()
-                
-                # Extract options
-                options_line = [line for line in question_lines if line.startswith('Options:')][0]
-                options = options_line.split("Options: ")[-1].strip("[]").replace("'", "").split(", ")
-                
+            if question_text and correct_answer_text and options:
                 # Create the question object
-                question_obj = Qestion.objects.create(
-                    exam=exam,
+                question_obj = Package_Qestion.objects.create(
+                    package=order_package,
                     question=question_text,
                     correct_answer=correct_answer_text
                 )
                 
                 # Create the answer objects
                 for answer_text in options:
-                    Answer.objects.create(
+                    Package_Answer.objects.create(
                         question=question_obj,
                         answer=answer_text.strip()
                     )
-
-            return JsonResponse({'success': 'Exam created successfully'}, status=201)
+            else:
+                logging.warning(f"Incomplete question data: {question_data}")
         
-        except OrderPakage.DoesNotExist:
-            return JsonResponse({'error': 'Order package not found'}, status=404)
-    
-    return JsonResponse({'error': 'Invalid request method'}, status=400)
+        except Exception as e:
+            logging.error(f"Error processing question: {question_data}, Error: {e}")
 
-
-
-
-def create_exam_logic(package_id):
-    print('generate exam 0 times')
-    print(package_id)
-    # try:
-    order_package = OrderPakage.objects.get(pakage=package_id)
-    
-    # Check if the order package exists and has available exam count
-    if order_package.Exam_count <= 0:
-        return JsonResponse({'message': 'Maximum exam count reached for this package'}, status=400)
-    
-    obj = order_package.pakage.pdf.path
-
-    # Generate 500 questions from the uploaded data
-    # questions_text = main(obj)
-    questions_text = main('doc.docx')
-    print(questions_text)
-
-    # Split the questions text into individual questions
-    question_chunks = questions_text.split("\n\n")
-
-    # Group questions into chunks of 100
-    question_batches = [question_chunks[i:i + 100] for i in range(0, len(question_chunks), 100)]
-
-    for batch_index, question_batch in enumerate(question_batches):
-        current_time = datetime.now().strftime('%H:%M:%S')  # Format: Hours:Minutes:Seconds
-        # Create the exam
-        exam = Exam.objects.create(
-            title=f"{order_package.order.order_number} {current_time} Batch {batch_index + 1}",
-            order=order_package.order,
-            pakage=order_package.pakage,
-            start_time=order_package.order.created_at,  # Start time is the order creation time
-        )
-        order_package.Exam_count -= 1
-        order_package.save()
-        create_single_exam(order_package, question_batch, exam)
-    
-
-    print("Exams created successfully")
-    return JsonResponse({'success': 'Exams created successfully'}, status=201)
-    
-    # except OrderPakage.DoesNotExist:
-    #     print("Order package not found")
-    #     return JsonResponse({'error': 'Order package not found'}, status=404)
-
-def create_single_exam(order_package, questions_text, exam):
+def package_create_single_exam(question_list, order_package):
     current_time = datetime.now().strftime('%H:%M:%S')  # Format: Hours:Minutes:Seconds
     logging.info('Generating exam at %s', current_time)
-    logging.info('Questions text: %s', questions_text)
+    logging.info('Questions list: %s', question_list)
 
+    for question_data in question_list:
+        try:
+            question_lines = question_data.split("\n")
+            
+            # Extract and clean the question text
+            question_text = None
+            for line in question_lines:
+                if line.lower().startswith("question: "):
+                    question_text = line.split("question: ")[-1].strip()
+                    break
+            
+            # Extract the correct answer
+            correct_answer_text = None
+            for line in question_lines:
+                if line.lower().startswith("answer: "):
+                    correct_answer_text = line.split("answer: ")[-1].strip()
+                    break
+            
+            # Extract options
+            options_line = None
+            for line in question_lines:
+                if line.lower().startswith("options:"):
+                    options_line = line
+                    break
+            
+            if options_line:
+                options = options_line.split("options: ")[-1].strip("[]").replace("'", "").split(", ")
+            else:
+                options = []
+            
+            if question_text and correct_answer_text and options:
+                # Create the question object
+                question_obj = Package_Qestion.objects.create(
+                    package=order_package,
+                    question=question_text,
+                    correct_answer=correct_answer_text
+                )
+                
+                # Create the answer objects
+                for answer_text in options:
+                    Package_Answer.objects.create(
+                        question=question_obj,
+                        answer=answer_text.strip()
+                    )
+            else:
+                logging.warning(f"Incomplete question data: {question_data}")
+        
+        except Exception as e:
+            logging.error(f"Error processing question: {question_data}, Error: {e}")
 
-
-    # Decrement the exam count for the order package
-    order_package.Exam_count -= 1
-    order_package.save()
-
-    # Update OrderPakageUseCount model
-    OrderPakageUseCount.objects.create(
-        order=order_package,
-        total_exam_crated=1
-    )
-
-    # Parse the generated questions and answers
-    for question_data in questions_text.split("\n\n"):
-        question_lines = question_data.split("\n")
-        
-        # Extract and clean the question text
-        question_text = question_lines[0].split("Question: ")[-1].strip()
-        
-        # Extract the correct answer
-        correct_answer_text = question_lines[1].split("Answer: ")[-1].strip()
-        
-        # Extract options
-        options_line = [line for line in question_lines if line.startswith('Options:')][0]
-        options = options_line.split("Options: ")[-1].strip("[]").replace("'", "").split(", ")
-        
-        # Create the question object
-        question_obj = Qestion.objects.create(
-            exam=exam,
-            question=question_text,
-            correct_answer=correct_answer_text
-        )
-        
-        # Create the answer objects
-        for answer_text in options:
-            Answer.objects.create(
-                question=question_obj,
-                answer=answer_text.strip()
-            )
 
 
 
@@ -357,13 +437,75 @@ def check_coupon_code(request,id):
 def get_exam(request, exam_id):
     try:
         exam = Exam.objects.get(id=exam_id)
-        serializer = ExamSerializer(exam)
+        
+        # Check if start_time and end_time are empty, generate them if empty
+        if not exam.start_time or not exam.end_time:
+            exam.start_time = timezone.now()
+            exam.end_time = exam.start_time + timedelta(hours=2)
+            exam.save()  # Save the changes to the database
+        
+        serializer = ExamSerializer(exam, context={'request': request})
         return Response(serializer.data)
     except Exam.DoesNotExist:
         return Response({"error": "Exam not found"}, status=status.HTTP_404_NOT_FOUND)
     
     
     
+    
+@login_required
+@api_view(['POST'])
+def submit_user_answers(request, exam_id):
+    if request.method == 'POST':
+        answers = request.data.get('answers')
+
+        if not answers:
+            return Response({'error': 'No answers provided'}, status=400)
+
+        total_questions = len(answers)
+        total_correct = 0
+
+        for answer in answers:
+            question_id = answer.get('question_id')
+            answer_text = answer.get('answer')
+
+            if not question_id or not answer_text:
+                return Response({'error': 'Invalid answer format'}, status=400)
+
+            # Get the exam question or handle if it doesn't exist
+            try:
+                question = Qestion.objects.get(id=question_id)
+            except Qestion.DoesNotExist:
+                return Response({'error': f'Question with ID {question_id} not found'}, status=404)
+
+            # Create User_exam object for each answer
+            is_correct = answer_text == question.correct_answer
+            User_exam.objects.create(
+                exam_id=exam_id,
+                question=question.question,
+                answer=answer_text,
+                correct_answer=question.correct_answer,
+                is_correct=is_correct
+            )
+
+            if is_correct:
+                total_correct += 1
+
+        total_incorrect = total_questions - total_correct
+        score = (total_correct / total_questions) * 100
+        is_pass = score >= 33  # Assuming pass mark is 33 out of 100
+        pl = Exam.objects.get(id = exam_id)
+        print(pl)
+        pl.result = score
+        pl.save()
+        return Response({
+            'message': 'Answers submitted successfully',
+            'total_correct': total_correct,
+            'total_incorrect': total_incorrect,
+            'score': score,
+            'is_pass': is_pass
+        }, status=200)
+    else:
+        return Response({'error': 'Invalid request method'}, status=405)
 
 @login_required
 def create_affiliate(request,email):

@@ -1,6 +1,7 @@
 import fitz  # PyMuPDF
 import docx
 from openai import OpenAI
+from .models import *
 client = OpenAI(api_key = 'sk-proj-d1C6VK0KpRTxBDNmAeguT3BlbkFJmci9p3jNlnr38c5STA6P')
 # Initialize OpenAI API
 # openai.api_key = 'sk-proj-d1C6VK0KpRTxBDNmAeguT3BlbkFJmci9p3jNlnr38c5STA6P'
@@ -37,19 +38,23 @@ def split_text_into_chunks(text, max_chunk_size=2000):
     return chunks
 
 def generate_questions_for_chunk(text_chunk, num_questions):
+    pl = Prompt.objects.first()
+    proms = pl.template
     print("generating data")
+    print(proms)
     response = client.chat.completions.create(
         model="gpt-4",
-        messages=[
+        messages = [
             {
                 "role": "system",
-                "content": f"You will be provided with text from a document. Your task is to generate {num_questions} multiple-choice questions with correct answers based on the text, from question remove serial nuumber start with qquestion: correct answer start with answer, options will start with options ,all 4 option will in option list like options:['option 1','option 2','option 3','option 4] "
+                "content": proms
             },
             {
                 "role": "user",
                 "content": text_chunk
             }
         ],
+
         temperature=0.7,
         max_tokens=4096  # Adjust this value if needed
     )

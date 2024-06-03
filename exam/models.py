@@ -13,7 +13,7 @@ from datetime import timedelta
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
 import uuid
-
+from django.utils.html import format_html
 
 
 def convert_image_to_webp(image):
@@ -58,6 +58,12 @@ class Pakage(models.Model):
     best_selling = models.BooleanField(blank=True,null=True)
     video = EmbedVideoField(blank=True,null=True)
     pdf = models.FileField(upload_to='static/pdfs/pakage/', null=True, blank=True)
+    docx = models.FileField(
+        upload_to='static/pdfs/pakage/',
+        help_text='Give here Genereated Question only no other data.',
+        null=True,
+        blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True,null=True)
     
     def __str__(self):
@@ -126,16 +132,12 @@ class OrderPakageUseCount(models.Model):
     
 class Exam(models.Model):
     title = models.CharField(max_length=80)
-    order = models.ForeignKey('Order', on_delete=models.CASCADE,null=True)
-    pakage = models.ForeignKey('Pakage', on_delete=models.CASCADE,null=True)
-    result = models.IntegerField(null=True,blank=True)
-    start_time = models.DateTimeField(null=True,blank=True)
-    end_time = models.DateTimeField(null=True,blank=True)
+    order = models.ForeignKey('Order', on_delete=models.CASCADE, null=True)
+    pakage = models.ForeignKey('Pakage', on_delete=models.CASCADE, null=True)
+    result = models.CharField(max_length=10,null=True, blank=True)
+    start_time = models.DateTimeField(null=True, blank=True)
+    end_time = models.DateTimeField(null=True, blank=True)
 
-    def save(self, *args, **kwargs):
-        # Calculate the end time by adding 2 hours to the start time
-        self.end_time = self.start_time + timedelta(hours=2)
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -144,16 +146,47 @@ class Qestion(models.Model):
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE, null=True)
     question = models.CharField(max_length=800,null=True)
     correct_answer = models.CharField(max_length=800)
+    def save(self, *args, **kwargs):
+        if self.question:
+            self.question = self.question.replace("Question: ", "").replace("question: ", "").strip()
+        if self.correct_answer:
+            self.correct_answer = self.correct_answer.replace("Answer:  ", "").replace("answer:  ", "").replace("'", "").replace("'", "").strip()
+        super(Qestion, self).save(*args, **kwargs)
     def __str__(self):
         return self.question
     
 class Answer(models.Model):
     question = models.ForeignKey(Qestion, on_delete=models.CASCADE, null=True)
     answer = models.CharField(max_length=800)
-
+    def save(self, *args, **kwargs):
+        if self.answer:
+            self.answer = self.answer.replace("Options: [", "").replace("options: [", "").strip()
+        super(Answer, self).save(*args, **kwargs)
+    
+    
+class User_exam(models.Model):
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE, null=True)
+    question = models.CharField(max_length=800, null=True)
+    answer = models.CharField(max_length=800)
+    correct_answer = models.CharField(max_length=800)
+    is_correct = models.BooleanField(default=False)  # Added field for correctness
 
     def __str__(self):
-        return f"Answer: {self.answer}"
+        return self.question
+
+    # def save(self, *args, **kwargs):
+    #     # Retrieve the correct answer associated with the question
+    #     correct_answer_obj = Qestion.objects.filter(id=self.question).first()
+    #     if correct_answer_obj:
+    #         self.correct_answer = correct_answer_obj.correct_answer
+        
+    #     # Compare the provided answer with the correct answer
+    #     if self.answer == self.correct_answer:
+    #         self.is_correct = True
+    #     else:
+    #         self.is_correct = False
+        
+    #     super().save(*args, **kwargs)
     
     
 class affiliate(models.Model):
@@ -194,3 +227,37 @@ class affiliate_earning(models.Model):
 
     def __str__(self):
         return f"{self.affiliate_account} - {self.order} - {self.status}"
+
+
+
+
+class Package_Qestion(models.Model):
+    package = models.ForeignKey(Pakage, on_delete=models.CASCADE, null=True)
+    question = models.CharField(max_length=800,null=True)
+    correct_answer = models.CharField(max_length=800)
+    def save(self, *args, **kwargs):
+        if self.question:
+            self.question = self.question.replace("Question: ", "").replace("question: ", "").strip()
+        if self.correct_answer:
+            self.correct_answer = self.correct_answer.replace("Answer: ", "").replace("answer: ", "").replace("'","").replace("'","").strip()
+        super(Package_Qestion, self).save(*args, **kwargs)
+    
+    def __str__(self):
+        return self.question
+    
+class Package_Answer(models.Model):
+    question = models.ForeignKey(Package_Qestion, on_delete=models.CASCADE, null=True)
+    answer = models.CharField(max_length=800)
+    
+    def save(self, *args, **kwargs):
+        if self.answer:
+            self.answer = self.answer.replace("Options: [", "").replace("options: [", "").strip()
+        super(Package_Answer, self).save(*args, **kwargs)
+        
+        
+        
+class Prompt(models.Model):
+    template = models.TextField(help_text="You will be provided with text from a document. Your task is to generate 5000 multiple-choice questions with correct answers based on the text. Remove the serial number from the questions. Start with 'question:'. The correct answer will start with 'answer:'. Options will start with 'options:'. All four options will be in a list format like options: ['option 1', 'option 2', 'option 3', 'option 4']. Ensure that 'answer:' appears after 'options:' for each question.")
+    
+    def __str__(self):
+        return self.template[:50]  # Display the first 50 characters in the admin interface
